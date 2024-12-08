@@ -1,4 +1,3 @@
-import MapControls from 'features/map-controls/MapControls';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
 
@@ -21,7 +20,6 @@ export default function MapWrapper() {
     <>
       <MapTooltip />
       {shouldShowFallback ? <MapFallback /> : <Map />}
-      <MapControls />
     </>
   );
 }

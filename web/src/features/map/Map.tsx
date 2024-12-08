@@ -1,9 +1,5 @@
 import useGetState from 'api/getState';
-import ExchangeLayer from 'features/exchanges/ExchangeLayer';
-import ZoomControls from 'features/map-controls/ZoomControls';
 import { leftPanelOpenAtom } from 'features/panels/panelAtoms';
-import SolarLayer from 'features/weather-layers/solar/SolarLayer';
-import WindLayer from 'features/weather-layers/wind-layer/WindLayer';
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { StyleSpecification } from 'maplibre-gl';
 import { ReactElement, useCallback, useEffect, useState } from 'react';
@@ -21,7 +17,6 @@ import { useCo2ColorScale, useTheme } from '../../hooks/theme';
 import BackgroundLayer from './map-layers/BackgroundLayer';
 import StatesLayer from './map-layers/StatesLayer';
 import ZonesLayer from './map-layers/ZonesLayer';
-import CustomLayer from './map-utils/CustomLayer';
 import { useGetGeometries } from './map-utils/getMapGrid';
 import { getZoneIdFromLocation } from './map-utils/getZoneIdFromLocation';
 import {
@@ -383,19 +378,7 @@ export default function MapPage({ onMapLoad }: MapPageProps): ReactElement {
       }}
       mapStyle={MAP_STYLE as StyleSpecification}
     >
-      <BackgroundLayer />
       <ZonesLayer />
-      <StatesLayer />
-      <CustomLayer>
-        <WindLayer />
-      </CustomLayer>
-      <CustomLayer>
-        <ExchangeLayer />
-      </CustomLayer>
-      <CustomLayer>
-        <SolarLayer />
-      </CustomLayer>
-      <ZoomControls />
     </Map>
   );
 }

@@ -31,6 +31,7 @@ function MenuLink({
     trackEvent(TrackEvent.HEADER_LINK_CLICKED, { linkId: id });
     onClick?.();
   };
+
   return (
     <NavigationMenu.Item
       asChild
